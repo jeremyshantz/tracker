@@ -17,6 +17,7 @@ nconf.defaults({
 console.log('Loading configuration from '+nconf.get('config'));
 nconf.file(nconf.get('config'));
 
+
 function compile(str, path){
     return stylus(str).set('filename', path);
 }
