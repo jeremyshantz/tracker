@@ -3,6 +3,7 @@ var express = require('express'),
     stylus = require('stylus'),
     logger = require('morgan'),
     bodyParser = require('body-parser')
+    mongoose = require('mongoose')
     ;
 
 var env = process.env.NODE_EN = process.env.NODE_EN || 'development';
@@ -37,10 +38,34 @@ app.get('/partials/:partialPath', function(req, res){
 });
 
 app.get('*',  function(req, res){
-    res.render('index');
+    res.render('index', { mongoMessage: mongoMessage });
 
 });
 
+
+
+// Database
+mongoose.connect('mongodb://localhost/tracker');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function callback(){
+    console.log('Tracker db opened');
+});
+
+var MessageSchema = mongoose.Schema({ message: String });
+
+var Message  = mongoose.model('Message', MessageSchema);
+var mongoMessage;
+
+Message.findOne().exec(function(err, messageDoc){
+    mongoMessage = messageDoc.message;
+});
+
+
+
+
+
+// Start server
 var port = 3030;
 
 app.listen(port);
