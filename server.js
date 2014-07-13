@@ -74,7 +74,7 @@ Message.findOne().exec(function(err, messageDoc){
 
 
 // Start server
-var port = nconf.get('port');
+var port = Number(nconf.get('PORT'));
 
 app.listen(port);
 

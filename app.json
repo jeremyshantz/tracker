@@ -1,5 +1,4 @@
 {
-    "port" :"3030",
     "connectionstring": "mongodb://tracker:apples@ds027709.mongolab.com:27709/tracker"
 
 }

@@ -1,1 +1,1 @@
-web: node server.js config --app.json
+web: node server.js --config app.json
