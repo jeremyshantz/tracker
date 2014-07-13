@@ -1,5 +1,5 @@
 {
-    "port" :"3030",
+    "PORT" :"3030",
     "connectionstring": "mongodb://localhost/tracker"
 
 }
