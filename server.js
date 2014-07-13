@@ -2,24 +2,33 @@
 var express = require('express'),
     stylus = require('stylus'),
     logger = require('morgan'),
-    bodyParser = require('body-parser')
-    mongoose = require('mongoose')
+    mongoose = require('mongoose'),
+    nconf = require('nconf'),
+    bodyparser = require('body-parser')
     ;
 
-var env = process.env.NODE_EN = process.env.NODE_EN || 'development';
 
+// Configuration
+nconf.argv().env();
+nconf.defaults({
+    "config": "app_dev.json"
+});
+
+console.log('Loading configuration from '+nconf.get('config'));
+nconf.file(nconf.get('config'));
 
 function compile(str, path){
     return stylus(str).set('filename', path);
-
 }
-
 
 var app = express();
 app.set('views', __dirname + '/server/views');
 app.set('view engine', 'jade');
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({
+    extended: true
+}));
 app.use(logger('dev'));
-app.use(bodyParser());
 app.use(stylus.middleware(
     {
         src: __dirname + '/public',
@@ -43,9 +52,9 @@ app.get('*',  function(req, res){
 });
 
 
-
 // Database
-mongoose.connect('mongodb://localhost/tracker');
+console.log(nconf.get('connectionstring'));
+mongoose.connect(nconf.get('connectionstring'));
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function callback(){
@@ -58,15 +67,13 @@ var Message  = mongoose.model('Message', MessageSchema);
 var mongoMessage;
 
 Message.findOne().exec(function(err, messageDoc){
+
     mongoMessage = messageDoc.message;
 });
 
 
-
-
-
 // Start server
-var port = 3030;
+var port = nconf.get('port');
 
 app.listen(port);
 
