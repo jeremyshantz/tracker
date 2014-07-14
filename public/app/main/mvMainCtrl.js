@@ -1,0 +1,47 @@
+
+angular.module('app').controller('mvMainCtrl', ['$scope', function($scope){
+
+    $scope.courses = [
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'featured', featured: true, published: new Date(2014,1,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) },
+        { name : 'July', featured: false, published: new Date(2014,6,1) }
+    ];
+
+}]);

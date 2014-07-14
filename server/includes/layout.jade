@@ -1,10 +1,25 @@
 doctype
 html
     head
+        title Labs
         link(href="/favicon-ok.ico", rel="shortcut icon", type="image-x-conn")
         link(href="/css/site.css" rel="stylesheet")
         link(href="/vendor/toastr/toastr.css" rel="stylesheet")
         link(href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
     body(ng-app='app')
+        .navbar.navbar-inverse.navbar-fixed-top
+            .container
+                .navbar-header
+                    a.navbar-brand(href="/") Multivision
+                        h6 Extreme Tech Training
+                .navbar-collapse.collapse
+                    ul.nav.navbar-nav
+                        li
+                            a(href="/") Home
+                    div(ng-include="'/partials/account/navbar-login'")
         block main-content
+
+        footer.container.text-center
+            p &copy; 2014 shantz.io
+
         include scripts
