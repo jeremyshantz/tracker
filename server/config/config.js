@@ -1,3 +1,4 @@
+'use strict'
 
 var nconf = require('nconf');
 
@@ -12,11 +13,16 @@ module.exports = function(rootPath){
     console.log('Loading configuration from '+ nconf.get('config'));
     nconf.file(rootPath + '/' + nconf.get('config'));
 
+    var port = nconf.get('PORT');
 
-    var x = nconf.get('PORT');
+    if (Number.isNaN(Number(port))) {
 
-    console.log(x);
+        nconf.set('PORT', 2020);
+    }
 
-    nconf.defaults({ 'PORT': 2020 });
+    console.log("Config port " + port);
+
+   //  nconf.defaults({ 'PORT': 2020 }); this overrides and does not merely provide a default
+
     return nconf;
 };

@@ -1,3 +1,14 @@
+if (!assert) {
+
+    var assert = require('assert');
+
+}
+
+
+describe('', function () {
+
+});
+
 describe('AdHoc', function() {
 
   //  beforeEach(module('app'));
@@ -6,7 +17,8 @@ describe('AdHoc', function() {
 
         it('test', function(){
 
-            expect(true).to.equal(true);
+            assert.equal(true, true);
+
         })
     });
 
@@ -15,7 +27,6 @@ describe('AdHoc', function() {
 
         it('test2', function(){
 
-            expect(true).to.equal(true);
         })
     });
 });
